@@ -1,0 +1,57 @@
+.routes-page { padding: 40px 0 60px; }
+
+.routes-header { margin-bottom: 32px; }
+.routes-header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.routes-header p { color: var(--text-2); font-size: 15px; }
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.route-card {
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.route-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.rc-cities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rc-city {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Syne', sans-serif;
+}
+
+.rc-arrow { color: var(--accent); font-size: 16px; }
+
+.rc-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 16px;
+}
+
+.rc-price { color: var(--green); font-weight: 600; }
+
+.rc-btn {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) { .routes-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .routes-grid { grid-template-columns: 1fr; } }
