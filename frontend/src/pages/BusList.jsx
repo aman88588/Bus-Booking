@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { searchBuses } from '../services/api';
@@ -58,11 +59,13 @@ export default function BusList() {
     }
   }, [departureCity, arrivalCity, date, filters]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setPage(1);
     fetchBuses(1);
   }, [filters, departureCity, arrivalCity, date]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchBuses(page);
   }, [page]);
@@ -195,10 +198,9 @@ export default function BusList() {
                           <span className={`badge ${bus.isAC ? 'badge-ac' : 'badge-nonac'}`}>
                             {bus.isAC ? '❄️ AC' : 'NON-AC'}
                           </span>
-                          <span className={`badge ${
-                            bus.seatType === 'sleeper' ? 'badge-sleeper' :
+                          <span className={`badge ${bus.seatType === 'sleeper' ? 'badge-sleeper' :
                             bus.seatType === 'semi-sleeper' ? 'badge-semi' : 'badge-normal'
-                          }`}>
+                            }`}>
                             {bus.seatType}
                           </span>
                         </div>

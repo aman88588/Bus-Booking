@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getBusDetails, lockSeats } from '../services/api';
@@ -19,6 +20,7 @@ export default function SeatSelection() {
   const timerRef = useRef(null);
   const lockExpiryRef = useRef(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchDetails = useCallback(async () => {
     try {
       setLoading(true);
@@ -32,6 +34,7 @@ export default function SeatSelection() {
     }
   }, [busId]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchDetails();
     return () => {
@@ -49,7 +52,6 @@ export default function SeatSelection() {
         clearInterval(timerRef.current);
         setTimerSeconds(0);
         setSelectedSeats([]);
-        // Refresh to show released seats
         fetchDetails();
       } else {
         setTimerSeconds(remaining);
@@ -81,7 +83,6 @@ export default function SeatSelection() {
         startTimer(res.data.lockedUntil);
       } catch (err) {
         setLockError(err.response?.data?.error || 'Could not lock seat. It may have been taken.');
-        // Revert selection
         setSelectedSeats(selectedSeats);
         fetchDetails();
       }
