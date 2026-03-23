@@ -320,3 +320,67 @@
     padding: 20px;
   }
 }
+
+/* ── Autocomplete Dropdown ── */
+.form-group {
+  position: relative;
+}
+
+.ac-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #13181f;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(249,115,22,0.08);
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  max-height: 232px;
+  overflow-y: auto;
+  backdrop-filter: blur(14px);
+  animation: ac-open 0.15s ease;
+}
+
+@keyframes ac-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ac-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #c8d0de;           /* readable light-grey, not washed-out */
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  border-left: 2px solid transparent;
+}
+
+.ac-item:hover,
+.ac-active {
+  background: rgba(249, 115, 22, 0.08);
+  border-left-color: var(--accent);
+  color: #fff;
+}
+
+.ac-item-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* Matched substring — subtle tinted pill that won't break row height */
+.ac-highlight {
+  background: rgba(249, 115, 22, 0.22);
+  color: #ff9a3c;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 1px 2px;
+  text-decoration: none;
+}
