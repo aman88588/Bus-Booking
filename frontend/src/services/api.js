@@ -17,4 +17,4 @@ export const lockSeats = (busId, seats, sessionId) =>
 export const createBooking = (bookingData) => api.post('/bookings', bookingData);
 
 export default api;
-//M
+//M 
