@@ -4,26 +4,41 @@ A full-stack Bus Booking System built with **React 18** (frontend) and **Node.js
 
 ---
 
-## 📋 Table of Contents
+## 🚀 Table of Contents
 
-1. [Project Structure](#-project-structure)
-2. [Tech Stack](#-tech-stack)
-3. [Quick Start](#-quick-start)
-4. [Environment Variables](#-environment-variables)
-5. [Application Workflow](#-application-workflow)
-6. [Feature Deep-Dives](#-feature-deep-dives)
-   - [Seat Locking & TTL](#-seat-locking--ttl-time-to-live)
-   - [Print Ticket](#-print-ticket)
-   - [Auto-Seed Database](#-auto-seed-database)
-   - [Filters & Pagination](#-filters--pagination)
-   - [Global State (Context API)](#-global-state-context-api)
-   - [Session ID & Idempotency](#-session-id--idempotency)
-7. [API Reference](#-api-reference)
-8. [Data Models](#-data-models)
-9. [Frontend Pages & Routes](#-frontend-pages--routes)
-10. [Error Handling](#-error-handling)
-11. [Deployment](#-deployment)
+<details open>
+<summary><b>📚 Navigate the Project</b></summary>
 
+### 🧱 Core Overview
+1. 🏗️ [Project Structure](#-project-structure)  
+2. ⚙️ [Tech Stack](#-tech-stack)  
+3. 🚀 [Quick Start](#-quick-start)  
+4. 🔐 [Environment Variables](#-environment-variables)  
+
+### 🔄 Application Flow
+5. 🔁 [Application Workflow](#-application-workflow)  
+
+### ✨ Features Deep Dive
+6. 🧩 [Feature Deep-Dives](#-feature-deep-dives)  
+   - ⏳ [Seat Locking & TTL](#-seat-locking--ttl-time-to-live)  
+   - 🧾 [Print Ticket](#-print-ticket)  
+   - 🌱 [Auto-Seed Database](#-auto-seed-database)  
+   - 🔍 [Filters & Pagination](#-filters--pagination)  
+   - 🌐 [Global State (Context API)](#-global-state-context-api)  
+   - 🆔 [Session ID & Idempotency](#-session-id--idempotency)  
+
+### 🧠 Backend & Data
+7. 🔗 [API Reference](#-api-reference)  
+8. 🗄️ [Data Models](#-data-models)  
+
+### 🎨 Frontend
+9. 🖥️ [Frontend Pages & Routes](#-frontend-pages--routes)  
+
+### ⚠️ Stability & Deployment
+10. 🚨 [Error Handling](#-error-handling)  
+11. 🚢 [Deployment](#-deployment)  
+
+</details>
 ---
 
 ## 📁 Project Structure
