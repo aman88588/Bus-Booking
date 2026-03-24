@@ -44,50 +44,54 @@ A full-stack Bus Booking System built with **React 18** (frontend) and **Node.js
 ## 📁 Project Structure
 
 ```
-bus-booking/
-├── backend/                         # Node.js + Express MVC
-│   ├── config/
-│   │   └── db.js                    # MongoDB connection + auto-seed
-│   ├── controllers/
-│   │   ├── busController.js         # getBuses, getBusById, lockSeats
-│   │   └── bookingController.js     # createBooking
-│   ├── models/
-│   │   ├── Bus.js                   # Bus + Seat + Stop schema
-│   │   └── Booking.js               # Booking + Passenger schema
-│   ├── routes/
-│   │   ├── busRoutes.js             # /api/buses/**
-│   │   └── bookingRoutes.js         # /api/bookings
-│   ├── server.js                    # Express app entry point
-│   ├── .env                         # MONGODB_URI, PORT
-│   └── package.json
-│
-└── frontend/                        # React 18 SPA
-    ├── src/
-    │   ├── context/
-    │   │   └── BookingContext.jsx   # Global state (Context API)
-    │   ├── services/
-    │   │   └── api.js               # Axios service layer
-    │   ├── components/
-    │   │   ├── Navbar.jsx           # Top navigation bar
-    │   │   └── Navbar.css
-    │   ├── pages/
-    │   │   ├── Home.jsx             # Search form page
-    │   │   ├── Home.css
-    │   │   ├── BusList.jsx          # Results with filters + pagination
-    │   │   ├── BusList.css
-    │   │   ├── SeatSelection.jsx    # Seat map + 2-min reservation timer
-    │   │   ├── SeatSelection.css
-    │   │   ├── BookingConfirmation.jsx  # Passenger details form
-    │   │   ├── BookingConfirmation.css
-    │   │   ├── BookingSuccess.jsx   # Success + print ticket
-    │   │   ├── BookingSuccess.css
-    │   │   ├── Routes.jsx           # Popular routes info page
-    │   │   └── Routes.css
-    │   ├── App.js                   # React Router + layout
-    │   ├── index.css                # Global design system / CSS variables
-    │   └── index.js
-    ├── .env
-    └── package.json
+├── 📁 backend
+│   ├── 📁 config
+│   │   └── 📄 db.js
+│   ├── 📁 controllers
+│   │   ├── 📄 bookingController.js
+│   │   └── 📄 busController.js
+│   ├── 📁 models
+│   │   ├── 📄 Booking.js
+│   │   └── 📄 Bus.js
+│   ├── 📁 routes
+│   │   ├── 📄 bookingRoutes.js
+│   │   └── 📄 busRoutes.js
+│   ├── 📁 scripts
+│   │   └── 📄 reseed.js
+│   ├── ⚙️ package-lock.json
+│   ├── ⚙️ package.json
+│   └── 📄 server.js
+├── 📁 frontend
+│   ├── 📁 public
+│   │   └── 🌐 index.html
+│   ├── 📁 src
+│   │   ├── 📁 components
+│   │   │   ├── 🎨 Navbar.css
+│   │   │   └── 📄 Navbar.jsx
+│   │   ├── 📁 context
+│   │   │   └── 📄 BookingContext.jsx
+│   │   ├── 📁 pages
+│   │   │   ├── 🎨 BookingConfirmation.css
+│   │   │   ├── 📄 BookingConfirmation.jsx
+│   │   │   ├── 🎨 BookingSuccess.css
+│   │   │   ├── 📄 BookingSuccess.jsx
+│   │   │   ├── 🎨 BusList.css
+│   │   │   ├── 📄 BusList.jsx
+│   │   │   ├── 🎨 Home.css
+│   │   │   ├── 📄 Home.jsx
+│   │   │   ├── 🎨 Routes.css
+│   │   │   ├── 📄 Routes.jsx
+│   │   │   ├── 🎨 SeatSelection.css
+│   │   │   └── 📄 SeatSelection.jsx
+│   │   ├── 📁 services
+│   │   │   └── 📄 api.js
+│   │   ├── 📄 App.js
+│   │   ├── 🎨 index.css
+│   │   └── 📄 index.js
+│   ├── ⚙️ package-lock.json
+│   └── ⚙️ package.json
+├── ⚙️ .gitignore
+└── 📝 README.md
 ```
 
 ---
