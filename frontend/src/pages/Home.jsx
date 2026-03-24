@@ -102,7 +102,13 @@ function CityAutocomplete({ name, value, onChange, placeholder, icon, error }) {
   return (
     <div className={`form-group ${error ? 'error' : ''}`} ref={wrapRef}>
       <label>{name === 'departureCity' ? 'Departure City' : 'Arrival City'}</label>
-      <div className="input-wrap">
+      <div
+        className="input-wrap"
+        role="combobox"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-owns={`${name}-listbox`}
+      >
         <span className="input-icon">{icon}</span>
         <input
           type="text"
@@ -116,13 +122,12 @@ function CityAutocomplete({ name, value, onChange, placeholder, icon, error }) {
           placeholder={placeholder}
           autoComplete="off"
           aria-autocomplete="list"
-          aria-expanded={open}
         />
       </div>
       {error && <span className="err-msg">{error}</span>}
 
       {open && (
-        <ul className="ac-dropdown" role="listbox">
+        <ul className="ac-dropdown" role="listbox" id={`${name}-listbox`}>
           {suggestions.map((city, i) => (
             <li
               key={city}
