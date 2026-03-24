@@ -39,7 +39,9 @@ function CityAutocomplete({ name, value, onChange, placeholder, icon, error }) {
         setSuggestions([]);
         setOpen(false);
       } else {
-        const filtered = CITIES.filter(c => c.toLowerCase().includes(q));
+        // const filtered = CITIES.filter(c => c.toLowerCase().includes(q));
+        const filtered = CITIES.filter(c => c.toLowerCase().startsWith(q));
+
         setSuggestions(filtered);
         setOpen(filtered.length > 0);
       }
@@ -91,11 +93,7 @@ function CityAutocomplete({ name, value, onChange, placeholder, icon, error }) {
     const idx = city.toLowerCase().indexOf(q.toLowerCase());
     if (idx === -1) return city;
     return (
-      <>
-        {city.slice(0, idx)}
-        <mark className="ac-highlight">{city.slice(idx, idx + q.length)}</mark>
-        {city.slice(idx + q.length)}
-      </>
+      <>{city.slice(0, idx)}<mark className="ac-highlight">{city.slice(idx, idx + q.length)}</mark>{city.slice(idx + q.length)}</>
     );
   };
 

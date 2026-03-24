@@ -763,21 +763,56 @@ Confirm a booking. Converts soft-locked seats into permanently booked seats.
 
 ## 🚢 Deployment
 
-### Frontend (Vercel / Netlify)
+### Frontend — Cloudflare Pages
+
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 
 ```bash
 cd frontend
-npm run build      # Outputs to /build
+npm run build      # Outputs static files to /build
 ```
 
-1. Set environment variable: `REACT_APP_API_URL=https://your-backend.onrender.com/api`
-2. Deploy the `build/` folder to Vercel or Netlify
+**Steps to deploy on Cloudflare Pages:**
 
-### Backend (Render / Railway / Koyeb)
+1. Push your repo to GitHub / GitLab
+2. Go to [pages.cloudflare.com](https://pages.cloudflare.com) → **Create a project** → Connect your repo
+3. Set build settings:
+   | Setting | Value |
+   |---|---|
+   | Framework preset | `Create React App` |
+   | Build command | `npm run build` |
+   | Build output directory | `build` |
+4. Add environment variable:
+   ```
+   REACT_APP_API_URL = https://your-backend.onrender.com/api
+   ```
+5. Click **Save and Deploy** — Cloudflare auto-deploys on every push
 
-1. Set environment variables: `MONGODB_URI`, `PORT`
-2. Start command: `node server.js`
-3. The server auto-seeds on first deploy if the database is empty
+> **Using Cloudflare Workers?** You can also proxy the API through a Worker to hide your backend URL and add edge-level caching.
+
+---
+
+### Backend — Render
+
+[![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+
+**Steps to deploy on Render:**
+
+1. Go to [render.com](https://render.com) → **New Web Service** → Connect your GitHub repo
+2. Set the following:
+   | Setting | Value |
+   |---|---|
+   | Root directory | `backend` |
+   | Runtime | `Node` |
+   | Build command | `npm install` |
+   | Start command | `node server.js` |
+3. Under **Environment**, add:
+   ```
+   MONGODB_URI = mongodb+srv://<user>:<pass>@cluster.mongodb.net/bus-booking
+   PORT        = 5050
+   ```
+4. Click **Create Web Service** — Render auto-deploys from your main branch
+5. The server **auto-seeds 58 buses** on first start if the database is empty
 
 ### Database (MongoDB Atlas)
 
@@ -790,7 +825,7 @@ npm run build      # Outputs to /build
 The backend uses `cors()` middleware with default settings (allows all origins). For production, restrict to your frontend domain:
 
 ```javascript
-app.use(cors({ origin: 'https://your-frontend.vercel.app' }));
+app.use(cors({ origin: 'https://your-frontend.pages.dev' }));
 ```
 
 ---
