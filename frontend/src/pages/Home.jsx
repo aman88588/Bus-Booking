@@ -108,6 +108,7 @@ function CityAutocomplete({ name, value, onChange, placeholder, icon, error }) {
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-owns={`${name}-listbox`}
+        aria-controls={`${name}-listbox`}
       >
         <span className="input-icon">{icon}</span>
         <input
